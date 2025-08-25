@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Conformal Prediction Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="wrap row">
+      <div class="brand">Conformal Prediction Visual Stimuli Demo</div>
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-tab="sample">Sample</div>
+        <div class="tab" data-tab="browse">Browse</div>
+      </div>
+      <div style="flex:1"></div>
+      <button class="btn" id="btn-download">Download CSV</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="layout">
+        <!-- Left instruction sidebar (hidden in Browse) -->
+        <aside class="sidebar card">
+          <h3 style="margin:4px 0 8px 0;">Instructions</h3>
+          <p class="muted">
+            You'll see an <em>instance image</em> and a <em>prediction set</em> of labels represented by class proxy images. 
+          </p>
+          <p class="muted">
+            The prediction set covers the true label about <strong>90%</strong> of the time on average.
+             Click the proxy whose label you believe matches the instance.
+          </p>
+          <p class="muted">
+             Image representativity and similarity measures are based on extracted embeddings from pretrained vision models.
+          </p>
+          <ul class="muted" style="margin-top:8px;">
+            <li><strong>Sample</strong>: pick a random stimulus.</li>
+            <li><strong>Browse</strong>: access all available stimuli.</li>
+          </ul>
+          <hr style="border:none;border-top:1px solid var(--border);margin:10px 0;">
+          <div class="small" id="model-meta"></div>
+        </aside>
+
+        <!-- Right content -->
+        <div class="content">
+          <div id="panel-sample" class="card">
+            <div class="row" style="justify-content:space-between">
+              <div class="row">
+                <button class="btn btn-primary btn-lg" id="btn-sample">Sample a stimulus</button>
+                <span class="pill" id="sample-meta"></span>
+              </div>
+            </div>
+            <div id="sample-stim" style="margin-top:12px;"></div>
+          </div>
+
+          <div id="panel-browse" class="grid2" style="display:none">
+            <div class="card">
+              <div class="row" style="justify-content:space-between;align-items:center;">
+                <div><strong>Browse</strong></div>
+               
+              </div>
+              <div id="browse-list" class="gallery" style="margin-top:10px;"></div>
+            </div>
+            <div class="card">
+              <div id="browse-stim"></div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- /.layout -->
+    </div>
+  </main>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
